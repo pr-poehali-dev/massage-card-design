@@ -4,7 +4,24 @@ import Icon from "@/components/ui/icon";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-card border border-accent/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden relative">
+      <Card className="w-full max-w-md bg-card border border-accent/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden relative" style={{
+        backgroundImage: `
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 3px,
+            rgba(139, 115, 85, 0.015) 3px,
+            rgba(139, 115, 85, 0.015) 6px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 3px,
+            rgba(139, 115, 85, 0.015) 3px,
+            rgba(139, 115, 85, 0.015) 6px
+          )
+        `
+      }}>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
         <div className="absolute top-0 bottom-0 left-0 w-px bg-gradient-to-b from-transparent via-accent to-transparent"></div>

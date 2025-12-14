@@ -100,6 +100,21 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Montserrat", sans-serif;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(139, 115, 85, 0.03) 2px,
+        rgba(139, 115, 85, 0.03) 4px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(139, 115, 85, 0.03) 2px,
+        rgba(139, 115, 85, 0.03) 4px
+      );
   }
 
   h1,
