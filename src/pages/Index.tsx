@@ -28,8 +28,8 @@ const Index = () => {
         <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-accent to-transparent"></div>
         
         <div className="p-16 text-center space-y-10 relative">
-          <div className="absolute top-8 left-8 w-12 h-12 border-l-2 border-t-2 border-accent/40"></div>
-          <div className="absolute top-8 right-8 w-12 h-12 border-r-2 border-t-2 border-accent/40"></div>
+          <div className="absolute top-6 left-6 w-12 h-12 border-l-2 border-t-2 border-accent/40"></div>
+          <div className="absolute top-6 right-6 w-12 h-12 border-r-2 border-t-2 border-accent/40"></div>
           <div className="absolute bottom-8 left-8 w-12 h-12 border-l-2 border-b-2 border-accent/40"></div>
           <div className="absolute bottom-8 right-8 w-12 h-12 border-r-2 border-b-2 border-accent/40"></div>
           
