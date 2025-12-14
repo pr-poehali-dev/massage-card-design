@@ -1,10 +1,36 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import { useRef } from "react";
 
 const Index = () => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadPDF = async () => {
+    if (!cardRef.current) return;
+
+    const canvas = await html2canvas(cardRef.current, {
+      scale: 3,
+      backgroundColor: "#F5F1E8",
+      logging: false,
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF({
+      orientation: "landscape",
+      unit: "mm",
+      format: [90, 50],
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, 90, 50);
+    pdf.save("vizitka-massazhist.pdf");
+  };
+
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-card border border-accent/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden relative" style={{
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 gap-6">
+      <Card ref={cardRef} className="w-full max-w-md bg-card border border-accent/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden relative" style={{
         backgroundImage: `
           repeating-linear-gradient(
             45deg,
@@ -72,6 +98,14 @@ const Index = () => {
           </div>
         </div>
       </Card>
+
+      <Button 
+        onClick={handleDownloadPDF}
+        className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg shadow-lg"
+      >
+        <Icon name="Download" size={20} className="mr-2" />
+        Скачать PDF для печати
+      </Button>
     </div>
   );
 };
